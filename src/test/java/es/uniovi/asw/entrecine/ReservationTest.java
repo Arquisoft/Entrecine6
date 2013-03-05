@@ -1,8 +1,8 @@
 package es.uniovi.asw.entrecine;
 
 import org.junit.*;
-import static org.fest.assertions.Assertions.*;
 
+import static org.fest.assertions.Assertions.*;
 
 public class ReservationTest {
 
