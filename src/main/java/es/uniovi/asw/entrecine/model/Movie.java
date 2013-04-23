@@ -1,6 +1,8 @@
 package es.uniovi.asw.entrecine.model;
 
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Movie {
 	
@@ -15,6 +17,8 @@ public class Movie {
 	private int duration;
 	
 	private int prize;
+	
+	private List<Session> sessions = new ArrayList<Session>();
 
 	public Long getId() {
 		return id;
@@ -64,5 +68,12 @@ public class Movie {
 		this.prize = prize;
 	}
 	
+	public List<Session> getSessions() {
+		return sessions;
+	}
+
+	public void setSessions(List<Session> sessions) {
+		this.sessions = sessions;
+	}
 
 }

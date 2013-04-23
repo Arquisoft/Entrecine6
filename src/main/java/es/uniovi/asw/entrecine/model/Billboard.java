@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Billboard {
-	
-	private List<Session> sessions = new ArrayList<Session>();
 
-	public List<Session> getSessions() {
-		return sessions;
+	private List<Movie> movies = new ArrayList<Movie>();
+
+	public List<Movie> getMovies() {
+		return movies;
 	}
 
-	public void setSessions(List<Session> sessions) {
-		this.sessions = sessions;
+	public void setMovies(List<Movie> movies) {
+		this.movies = movies;
 	}
 
 }

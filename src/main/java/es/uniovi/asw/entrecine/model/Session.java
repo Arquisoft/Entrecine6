@@ -8,15 +8,12 @@ public class Session {
 	
 	private int theater;
 	
-	private Movie movie;
-	
 	private int startTime;
 
 	public Session(Long id, int theater, Movie movie, int startTime,
 			List<Integer> ocuppedSeats) {
 		this.id = id;
 		this.theater = theater;
-		this.movie = movie;
 		this.startTime = startTime;
 	}
 
@@ -34,14 +31,6 @@ public class Session {
 
 	public void setTheater(int theater) {
 		this.theater = theater;
-	}
-
-	public Movie getMovie() {
-		return movie;
-	}
-
-	public void setMovie(Movie movie) {
-		this.movie = movie;
 	}
 
 	public int getStartTime() {
