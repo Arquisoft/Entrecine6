@@ -1,34 +1,30 @@
 package es.uniovi.asw.entrecine.model;
 
 public class PaymentResult {
-
-	private boolean paid = false;
-
-	private boolean sessionFull = false;
 	
-	private String errorMessage = "";
+	public static enum ErrorCode{ OKEY, INVALIDPAYMENT, SESSIONFULL, INTERNALERROR}
 
-	public boolean isPaid() {
-		return paid;
+	// Codigo de error
+	private ErrorCode errorCode;
+	
+	// Asientos asignados a la venta para mostrarlos por pantalla
+	private int[] seats;
+
+	public ErrorCode getErrorCode() {
+		return errorCode;
 	}
 
-	public void setPaid(boolean paid) {
-		this.paid = paid;
+	public void setErrorCode(ErrorCode errorCode) {
+		this.errorCode = errorCode;
 	}
 
-	public boolean isSessionFull() {
-		return sessionFull;
+	public int[] getSeats() {
+		return seats;
 	}
 
-	public void setSessionFull(boolean sessionFull) {
-		this.sessionFull = sessionFull;
+	public void setSeats(int[] seats) {
+		this.seats = seats;
 	}
-
-	public String getErrorMessage() {
-		return errorMessage;
-	}
-
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
-	}
+	
+	
 }
