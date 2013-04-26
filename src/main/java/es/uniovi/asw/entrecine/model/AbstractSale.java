@@ -1,6 +1,6 @@
 package es.uniovi.asw.entrecine.model;
 
-public class AbstractSale implements Sale {
+public abstract class AbstractSale implements Sale {
 	
 	protected Long id;
 	

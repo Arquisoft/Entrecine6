@@ -7,5 +7,7 @@ public interface Sale {
 	int getNumberOfSeats();
 	
 	Session getSession();	
+	
+	String getPaymentInfo();
 
 }

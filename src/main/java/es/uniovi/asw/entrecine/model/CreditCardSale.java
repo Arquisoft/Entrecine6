@@ -20,4 +20,9 @@ public class CreditCardSale extends AbstractSale {
 		this.creditCardNumber = creditCardNumber;
 	}
 
+	@Override
+	public String getPaymentInfo() {
+		return creditCardNumber;
+	}
+
 }

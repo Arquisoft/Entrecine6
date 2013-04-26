@@ -8,4 +8,9 @@ public class CashSale extends AbstractSale {
 		this.session = session;
 	}
 
+	@Override
+	public String getPaymentInfo() {
+		return "Cash";
+	}
+
 }
