@@ -1,4 +1,4 @@
-package es.uniovi.asw.entrecine.central.system.model;
+package es.uniovi.asw.entrecine6.central.model;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package es.uniovi.asw.entrecine.central.system.model;
+package es.uniovi.asw.entrecine6.central.model;
 
 import java.util.List;
 
@@ -9,6 +9,8 @@ public class Session {
 	private int theater;
 	
 	private int startTime;
+	
+	private float prize;
 
 	public Session(Long id, int theater, Movie movie, int startTime,
 			List<Integer> ocuppedSeats) {
@@ -39,6 +41,14 @@ public class Session {
 
 	public void setStartTime(int startTime) {
 		this.startTime = startTime;
+	}
+
+	public float getPrize() {
+		return prize;
+	}
+
+	public void setPrize(float prize) {
+		this.prize = prize;
 	}
 
 }

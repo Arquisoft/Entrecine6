@@ -1,4 +1,4 @@
-package es.uniovi.asw.entrecine.central.system.model;
+package es.uniovi.asw.entrecine6.central.model;
 
 public class Ticket {
 	
@@ -10,6 +10,11 @@ public class Ticket {
 
 	public Ticket(Long id, String code, Sale info) {
 		this.id = id;
+		this.code = code;
+		this.info = info;
+	}
+
+	public Ticket(String code, Sale info) {
 		this.code = code;
 		this.info = info;
 	}
