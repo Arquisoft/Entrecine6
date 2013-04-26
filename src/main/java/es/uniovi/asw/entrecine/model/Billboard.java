@@ -1,11 +1,14 @@
 package es.uniovi.asw.entrecine.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Billboard {
 
-	private List<Movie> movies = new ArrayList<Movie>();
+	private List<Movie> movies;
+
+	public Billboard(List<Movie> movies) {
+		this.movies = movies;
+	}
 
 	public List<Movie> getMovies() {
 		return movies;

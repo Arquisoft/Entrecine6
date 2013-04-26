@@ -2,11 +2,11 @@ package es.uniovi.asw.entrecine.model;
 
 public class AbstractSale implements Sale {
 	
-	private Long id;
+	protected Long id;
 	
-	private int numberOfSeats;
+	protected int numberOfSeats;
 	
-	private Session session;
+	protected Session session;
 
 	@Override
 	public Long getId() {
