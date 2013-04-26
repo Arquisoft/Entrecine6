@@ -9,6 +9,8 @@ public class Session {
 	private int theater;
 	
 	private int startTime;
+	
+	private float prize;
 
 	public Session(Long id, int theater, Movie movie, int startTime,
 			List<Integer> ocuppedSeats) {
@@ -39,6 +41,14 @@ public class Session {
 
 	public void setStartTime(int startTime) {
 		this.startTime = startTime;
+	}
+
+	public float getPrize() {
+		return prize;
+	}
+
+	public void setPrize(float prize) {
+		this.prize = prize;
 	}
 
 }

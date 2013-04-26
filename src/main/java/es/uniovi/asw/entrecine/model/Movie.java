@@ -16,8 +16,6 @@ public class Movie {
 	
 	private int duration;
 	
-	private int prize;
-	
 	private List<Session> sessions = new ArrayList<Session>();
 
 	public Long getId() {
@@ -60,14 +58,6 @@ public class Movie {
 		this.duration = duration;
 	}
 
-	public int getPrize() {
-		return prize;
-	}
-
-	public void setPrize(int prize) {
-		this.prize = prize;
-	}
-	
 	public List<Session> getSessions() {
 		return sessions;
 	}

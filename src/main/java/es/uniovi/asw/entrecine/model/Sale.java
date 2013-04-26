@@ -4,8 +4,8 @@ public interface Sale {
 	
 	Long getId();
 	
-	int getQuantity();
+	int getNumberOfSeats();
 	
-	int getSeat();
+	Session getSession();	
 
 }

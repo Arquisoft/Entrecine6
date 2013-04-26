@@ -1,23 +1,15 @@
 package es.uniovi.asw.entrecine.model;
 
-public class CreditCardSale implements Sale{
+public class CreditCardSale extends AbstractSale{
 
-	@Override
-	public int getQuantity() {
-		// TODO Auto-generated method stub
-		return 0;
+	private String creditCardNumber;
+
+	public String getCreditCardNumber() {
+		return creditCardNumber;
 	}
 
-	@Override
-	public int getSeat() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public Long getId() {
-		// TODO Auto-generated method stub
-		return null;
+	public void setCreditCardNumber(String creditCardNumber) {
+		this.creditCardNumber = creditCardNumber;
 	}
 
 }
