@@ -17,7 +17,7 @@ public interface WebServerToCentralSystem {
 	
 	PaymentResult payment(CreditCardSale sale);
 	
-	Ticket receiveTicket();
+	Ticket receiveTicket(CreditCardSale sale);
 	
 	void connect(BillboardUpdateListener listener);
 
