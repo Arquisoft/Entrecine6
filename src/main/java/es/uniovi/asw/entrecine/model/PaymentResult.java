@@ -13,6 +13,16 @@ public class PaymentResult {
 	// Misma venta que la enviada, pero con el campo id con un valor
 	// Debe usarse como parametro al pedir el ticket
 	private Sale sale;
+	
+	public PaymentResult(ErrorCode error){
+		this.errorCode = error;
+	}
+
+	public PaymentResult(ErrorCode errorCode, int[] seats, Sale sale) {
+		this.errorCode = errorCode;
+		this.seats = seats;
+		this.sale = sale;
+	}
 
 	public ErrorCode getErrorCode() {
 		return errorCode;

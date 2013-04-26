@@ -14,6 +14,11 @@ public class Ticket {
 		this.info = info;
 	}
 
+	public Ticket(String code, Sale info) {
+		this.code = code;
+		this.info = info;
+	}
+
 	public Long getId() {
 		return id;
 	}

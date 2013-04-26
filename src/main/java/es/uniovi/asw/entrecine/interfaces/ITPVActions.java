@@ -4,7 +4,6 @@ import es.uniovi.asw.entrecine.model.Billboard;
 import es.uniovi.asw.entrecine.model.CashSale;
 import es.uniovi.asw.entrecine.model.CreditCardSale;
 import es.uniovi.asw.entrecine.model.PaymentResult;
-import es.uniovi.asw.entrecine.model.Ticket;
 
 public interface ITPVActions {
 	
@@ -12,7 +11,7 @@ public interface ITPVActions {
 	
 	PaymentResult creditCardPayment(CreditCardSale sale);
 	
-	boolean checkTocket(Ticket ticket);
+	boolean checkTicket(String code);
 	
 	Billboard getBillboard();
 }
