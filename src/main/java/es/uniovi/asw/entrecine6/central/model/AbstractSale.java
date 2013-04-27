@@ -1,5 +1,6 @@
 package es.uniovi.asw.entrecine6.central.model;
 
+@SuppressWarnings("serial")
 public abstract class AbstractSale implements Sale {
 	
 	protected Long id;

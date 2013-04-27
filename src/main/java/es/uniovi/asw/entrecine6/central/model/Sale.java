@@ -1,6 +1,8 @@
 package es.uniovi.asw.entrecine6.central.model;
 
-public interface Sale {
+import java.io.Serializable;
+
+public interface Sale extends Serializable{
 	
 	Long getId();
 	

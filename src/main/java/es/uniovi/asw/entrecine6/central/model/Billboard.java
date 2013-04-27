@@ -1,8 +1,10 @@
 package es.uniovi.asw.entrecine6.central.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Billboard {
+@SuppressWarnings("serial")
+public class Billboard implements Serializable{
 
 	private List<Movie> movies;
 

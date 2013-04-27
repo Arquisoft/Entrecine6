@@ -1,5 +1,6 @@
 package es.uniovi.asw.entrecine6.central.model;
 
+@SuppressWarnings("serial")
 public class CashSale extends AbstractSale {
 
 	public CashSale(Long id, int numberOfSeats, Session session) {

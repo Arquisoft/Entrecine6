@@ -1,6 +1,9 @@
 package es.uniovi.asw.entrecine6.central.model;
 
-public class PaymentResult {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class PaymentResult implements Serializable{
 	
 	public static enum ErrorCode{ OKEY, INVALIDPAYMENT, SESSIONFULL, INTERNALERROR}
 

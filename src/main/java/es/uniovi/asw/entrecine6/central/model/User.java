@@ -1,8 +1,10 @@
 package es.uniovi.asw.entrecine6.central.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class User {
+@SuppressWarnings("serial")
+public class User implements Serializable{
 	
 	private Long id;
 	

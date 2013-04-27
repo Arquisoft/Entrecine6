@@ -1,8 +1,10 @@
 package es.uniovi.asw.entrecine6.central.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Session {
+@SuppressWarnings("serial")
+public class Session implements Serializable{
 	
 	private Long id;
 	

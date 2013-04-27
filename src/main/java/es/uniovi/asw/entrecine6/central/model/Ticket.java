@@ -1,6 +1,9 @@
 package es.uniovi.asw.entrecine6.central.model;
 
-public class Ticket {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class Ticket implements Serializable{
 	
 	private Long id;
 	

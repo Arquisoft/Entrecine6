@@ -1,9 +1,11 @@
 package es.uniovi.asw.entrecine6.central.model;
 
 import java.awt.Image;
+import java.io.Serializable;
 import java.util.List;
 
-public class Movie {
+@SuppressWarnings("serial")
+public class Movie implements Serializable{
 	
 	private Long id;
 	
