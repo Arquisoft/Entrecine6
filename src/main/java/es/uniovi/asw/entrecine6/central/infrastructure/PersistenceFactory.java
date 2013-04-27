@@ -1,21 +1,23 @@
 package es.uniovi.asw.entrecine6.central.infrastructure;
 
-import es.uniovi.asw.entrecine6.central.persistence.BillboardPersistenceService;
-import es.uniovi.asw.entrecine6.central.persistence.SalesPersistenceService;
-import es.uniovi.asw.entrecine6.central.persistence.UserPersistenceService;
+import impl.uniovi.asw.entrecine6.central.business.PaymentServiceImpl;
+import impl.uniovi.asw.entrecine6.central.business.UsersServiceImpl;
+import impl.uniovi.asw.entrecine6.central.persistence.dao.MovieJdbcDao;
+import es.uniovi.asw.entrecine6.central.business.PaymentService;
+import es.uniovi.asw.entrecine6.central.business.UsersService;
+import es.uniovi.asw.entrecine6.central.persistence.dao.MovieDao;
 
 public class PersistenceFactory {
 	
-	public static SalesPersistenceService getSalesPersistenceService(){
-		return null;
-	}
-	
-	public static UserPersistenceService getUserPersistenceService(){
-		return null;
-	}
-	
-	public static BillboardPersistenceService getBillboardPersistenceService(){
-		return null;
+	public static MovieDao getMovieDao() {
+		return new MovieJdbcDao();
 	}
 
+	public static PaymentService getPaymentService() {
+		return new PaymentServiceImpl();
+	}
+
+	public static UsersService getUsersService() {
+		return new UsersServiceImpl();
+	}
 }

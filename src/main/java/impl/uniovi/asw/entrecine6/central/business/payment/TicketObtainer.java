@@ -2,7 +2,7 @@ package impl.uniovi.asw.entrecine6.central.business.payment;
 
 import java.util.Random;
 
-import es.uniovi.asw.entrecine6.central.infrastructure.PersistenceFactory;
+import es.uniovi.asw.entrecine6.central.infrastructure.DBServicesFactory;
 import es.uniovi.asw.entrecine6.central.model.CreditCardSale;
 import es.uniovi.asw.entrecine6.central.model.Ticket;
 
@@ -12,7 +12,7 @@ public class TicketObtainer {
 
 	public Ticket generateTicket(CreditCardSale sale) {
 		Ticket ticket = new Ticket(generateCode(), sale);	
-		PersistenceFactory.getSalesPersistenceService().saveTicket(ticket);
+		DBServicesFactory.getSalesPersistenceService().saveTicket(ticket);
 		return ticket;
 	}
 

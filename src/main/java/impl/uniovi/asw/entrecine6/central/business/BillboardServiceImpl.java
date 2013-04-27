@@ -31,7 +31,7 @@ public class BillboardServiceImpl implements BillboardService {
 	}
 	
 	private List<Movie> getMovies(){
-		return new BillboardLoader().loadBillboard(); 
+		return new BillboardLoader().loadMovies(); 
 	}
 
 }
