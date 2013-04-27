@@ -12,7 +12,7 @@ public class TicketObtainer {
 
 	public Ticket generateTicket(CreditCardSale sale) {
 		Ticket ticket = new Ticket(generateCode(), sale);	
-		PersistenceFactory.getTicketPersistenceService().saveTicket(ticket);
+		PersistenceFactory.getSalesPersistenceService().saveTicket(ticket);
 		return ticket;
 	}
 

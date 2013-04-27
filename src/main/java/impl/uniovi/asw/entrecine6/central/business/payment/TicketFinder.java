@@ -6,7 +6,7 @@ import es.uniovi.asw.entrecine6.central.model.Ticket;
 public class TicketFinder {
 
 	public boolean validateCode(String ticketCode) {
-		Ticket ticket = PersistenceFactory.getTicketPersistenceService()
+		Ticket ticket = PersistenceFactory.getSalesPersistenceService()
 				.getTicket(ticketCode);
 		
 		if (ticket != null && ticket.getCode().equals(ticketCode))
