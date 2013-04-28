@@ -8,7 +8,7 @@ public class UserLoader {
 
 	public User loadUser(String userName, String password) {
 		UserDBService service = DBServicesFactory
-				.getUserPersistenceService();
+				.getUserDBService();
 		return service.loadUser(userName, password);
 	}
 

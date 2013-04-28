@@ -8,7 +8,7 @@ public class UserSaver {
 
 	// Tiene que cazar la excepcion
 	public boolean saveUser(User user) {
-		UserDBService service = DBServicesFactory.getUserPersistenceService();
+		UserDBService service = DBServicesFactory.getUserDBService();
 		return service.saveUser(user);
 	}
 

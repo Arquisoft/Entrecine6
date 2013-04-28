@@ -3,11 +3,12 @@ package impl.uniovi.asw.entrecine6.central.persistence;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import es.uniovi.asw.entrecine6.central.infrastructure.db.Jdbc;
+import es.uniovi.asw.entrecine6.central.business.exception.BusinessException;
+import es.uniovi.asw.entrecine6.central.infrastructure.jdbc.Jdbc;
 
 public class Summoner {
 
-	public Object invoke(Invoke eon) {
+	public Object invoke(Invoke eon) throws BusinessException {
 
 		Connection connection = createConnection();
 

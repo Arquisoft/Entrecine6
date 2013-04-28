@@ -1,22 +1,18 @@
 package impl.uniovi.asw.entrecine6.central.persistence.classes.sale;
 
+import impl.uniovi.asw.entrecine6.central.persistence.DataEncryptor;
+import impl.uniovi.asw.entrecine6.central.persistence.Invoke;
+
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import es.uniovi.asw.entrecine6.central.infrastructure.PersistenceFactory;
 import es.uniovi.asw.entrecine6.central.infrastructure.jdbc.Jdbc;
 import es.uniovi.asw.entrecine6.central.model.Sale;
 import es.uniovi.asw.entrecine6.central.persistence.dao.SaleDao;
 
-import impl.uniovi.asw.entrecine6.central.persistence.DataEncryptor;
-import impl.uniovi.asw.entrecine6.central.persistence.Invoke;
-
-public class SaveSale implements Invoke {
-
-	private Sale sale;
-
-	public SaveSale(Sale sale) {
-		this.sale = sale;
-	}
+public class FindAllSales implements Invoke {
 
 	@Override
 	public Object invoke() throws SQLException {
@@ -25,14 +21,20 @@ public class SaveSale implements Invoke {
 
 		dao.setConnection(Jdbc.getCurrentConnection());
 
-		String encodedInfo = encryptor.encrypt(sale.getPaymentInfo());
+		List<Sale> sales = dao.findAll();
 
-		Sale encodedSale = new Sale(sale.getId(), sale.getNumberOfSeats(),
-				sale.getSession(), encodedInfo);
+		List<Sale> decodedSales = new ArrayList<Sale>();
+		
+		for (Sale sale : sales) {
+			String decodedInfo = encryptor.decrypt(sale.getPaymentInfo());
 
-		dao.saveSale(encodedSale);
+			Sale decodedSale = new Sale(sale.getId(), sale.getNumberOfSeats(),
+					sale.getSession(), decodedInfo);
 
-		return null;
+			decodedSales.add(decodedSale);
+		}
+		
+		return decodedSales;
 	}
 
 }

@@ -5,22 +5,21 @@ import es.uniovi.asw.entrecine6.central.business.PaymentService;
 import es.uniovi.asw.entrecine6.central.gateway.TPVGateway;
 import es.uniovi.asw.entrecine6.central.infrastructure.ServicesFactory;
 import es.uniovi.asw.entrecine6.central.model.Billboard;
-import es.uniovi.asw.entrecine6.central.model.CashSale;
-import es.uniovi.asw.entrecine6.central.model.CreditCardSale;
 import es.uniovi.asw.entrecine6.central.model.PaymentResult;
+import es.uniovi.asw.entrecine6.central.model.Sale;
 
 public class TPVGatewayImpl implements TPVGateway{
 	
 	public TPVGatewayImpl(){}
 
 	@Override
-	public PaymentResult cashPayment(CashSale sale) {
+	public PaymentResult cashPayment(Sale sale) {
 		PaymentService service = ServicesFactory.getPaymentService();
 		return service.cashPayment(sale);
 	}
 
 	@Override
-	public PaymentResult creditCardPayment(CreditCardSale sale) {
+	public PaymentResult creditCardPayment(Sale sale) {
 		PaymentService service = ServicesFactory.getPaymentService();
 		return service.creditCardPayment(sale);
 	}

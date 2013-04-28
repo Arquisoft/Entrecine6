@@ -1,19 +1,18 @@
 package es.uniovi.asw.entrecine6.central.business;
 
-import es.uniovi.asw.entrecine6.central.model.CashSale;
-import es.uniovi.asw.entrecine6.central.model.CreditCardSale;
 import es.uniovi.asw.entrecine6.central.model.PaymentResult;
+import es.uniovi.asw.entrecine6.central.model.Sale;
 import es.uniovi.asw.entrecine6.central.model.Ticket;
 
 public interface PaymentService {
 	
-	PaymentResult creditCardPayment(CreditCardSale sale);
+	PaymentResult creditCardPayment(Sale sale);
 	
-	PaymentResult cashPayment(CashSale sale);
+	PaymentResult cashPayment(Sale sale);
 	
-	PaymentResult serverPayment(CreditCardSale sale);
+	PaymentResult serverPayment(Sale sale);
 	
-	Ticket obtainTicket(CreditCardSale sale);
+	Ticket obtainTicket(Sale sale);
 
 	boolean checkTicket(String ticketCode);
 

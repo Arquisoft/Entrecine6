@@ -10,7 +10,7 @@ public class BillboardLoader {
 
 	public List<Movie> loadMovies() {
 		BillboardDBService service = DBServicesFactory
-				.getBillboardPersistenceService();
+				.getBillboardDBService();
 		return service.loadMovies();
 	}
 

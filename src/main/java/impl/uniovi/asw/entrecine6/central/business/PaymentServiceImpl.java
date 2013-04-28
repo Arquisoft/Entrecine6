@@ -5,30 +5,29 @@ import impl.uniovi.asw.entrecine6.central.business.payment.CreditCardPayment;
 import impl.uniovi.asw.entrecine6.central.business.payment.TicketFinder;
 import impl.uniovi.asw.entrecine6.central.business.payment.TicketObtainer;
 import es.uniovi.asw.entrecine6.central.business.PaymentService;
-import es.uniovi.asw.entrecine6.central.model.CashSale;
-import es.uniovi.asw.entrecine6.central.model.CreditCardSale;
 import es.uniovi.asw.entrecine6.central.model.PaymentResult;
+import es.uniovi.asw.entrecine6.central.model.Sale;
 import es.uniovi.asw.entrecine6.central.model.Ticket;
 
-public class PaymentServiceImpl implements PaymentService{
+public class PaymentServiceImpl implements PaymentService {
 
 	@Override
-	public PaymentResult creditCardPayment(CreditCardSale sale) {
+	public PaymentResult creditCardPayment(Sale sale) {
 		return new CreditCardPayment().doPayment(sale);
 	}
 
 	@Override
-	public PaymentResult cashPayment(CashSale sale) {
+	public PaymentResult cashPayment(Sale sale) {
 		return new CashPayment().doPayment(sale);
 	}
 
 	@Override
-	public PaymentResult serverPayment(CreditCardSale sale) {
+	public PaymentResult serverPayment(Sale sale) {
 		return new CreditCardPayment().doPayment(sale);
 	}
 
 	@Override
-	public Ticket obtainTicket(CreditCardSale sale) {
+	public Ticket obtainTicket(Sale sale) {
 		return new TicketObtainer().generateTicket(sale);
 	}
 

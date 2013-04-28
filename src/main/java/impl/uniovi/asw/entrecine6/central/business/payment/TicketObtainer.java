@@ -2,17 +2,27 @@ package impl.uniovi.asw.entrecine6.central.business.payment;
 
 import java.util.Random;
 
+import es.uniovi.asw.entrecine6.central.business.exception.BusinessException;
 import es.uniovi.asw.entrecine6.central.infrastructure.DBServicesFactory;
-import es.uniovi.asw.entrecine6.central.model.CreditCardSale;
+import es.uniovi.asw.entrecine6.central.model.Sale;
 import es.uniovi.asw.entrecine6.central.model.Ticket;
 
 public class TicketObtainer {
 
 	private final static int CODE_LENGTH = 10;
 
-	public Ticket generateTicket(CreditCardSale sale) {
-		Ticket ticket = new Ticket(generateCode(), sale);	
-		DBServicesFactory.getSalesPersistenceService().saveTicket(ticket);
+	public Ticket generateTicket(Sale sale) {
+		boolean duplicated;
+		Ticket ticket = null;
+		do {
+			ticket = new Ticket(generateCode(), sale);
+			duplicated = false;
+			try {
+				DBServicesFactory.getSalesDBService().saveTicket(ticket);
+			} catch (BusinessException e) {
+				duplicated = true;
+			}
+		} while (duplicated);
 		return ticket;
 	}
 

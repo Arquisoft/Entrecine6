@@ -8,7 +8,7 @@ public class BillboardUpdateConnecter {
 
 	public void connect(BillboardUpdateListener listener) {
 		BillboardDBService service = DBServicesFactory
-				.getBillboardPersistenceService();
+				.getBillboardDBService();
 		service.registerServer(listener);
 	}
 

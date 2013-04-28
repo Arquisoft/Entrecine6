@@ -9,15 +9,15 @@ import es.uniovi.asw.entrecine6.central.persistence.UserDBService;
 
 public class DBServicesFactory {
 	
-	public static SalesDBService getSalesPersistenceService(){
+	public static SalesDBService getSalesDBService(){
 		return new SalesDBServiceImpl();
 	}
 	
-	public static UserDBService getUserPersistenceService(){
+	public static UserDBService getUserDBService(){
 		return new UserDBServiceImpl();
 	}
 	
-	public static BillboardDBService getBillboardPersistenceService(){
+	public static BillboardDBService getBillboardDBService(){
 		return new BillboardDBServiceImpl();
 	}
 

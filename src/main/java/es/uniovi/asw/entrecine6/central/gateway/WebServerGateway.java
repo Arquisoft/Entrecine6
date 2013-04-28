@@ -5,8 +5,8 @@ import java.rmi.RemoteException;
 
 import es.uniovi.asw.entrecine6.central.business.listener.BillboardUpdateListener;
 import es.uniovi.asw.entrecine6.central.model.Billboard;
-import es.uniovi.asw.entrecine6.central.model.CreditCardSale;
 import es.uniovi.asw.entrecine6.central.model.PaymentResult;
+import es.uniovi.asw.entrecine6.central.model.Sale;
 import es.uniovi.asw.entrecine6.central.model.Ticket;
 import es.uniovi.asw.entrecine6.central.model.User;
 
@@ -18,9 +18,9 @@ public interface WebServerGateway extends Remote {
 
 	Billboard requestBillboard() throws RemoteException;
 
-	PaymentResult payment(CreditCardSale sale) throws RemoteException;
+	PaymentResult payment(Sale sale) throws RemoteException;
 
-	Ticket receiveTicket(CreditCardSale sale) throws RemoteException;
+	Ticket receiveTicket(Sale sale) throws RemoteException;
 
 	void connect(BillboardUpdateListener listener) throws RemoteException;
 

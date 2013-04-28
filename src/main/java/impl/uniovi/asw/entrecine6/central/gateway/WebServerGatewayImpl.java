@@ -7,8 +7,8 @@ import es.uniovi.asw.entrecine6.central.business.listener.BillboardUpdateListene
 import es.uniovi.asw.entrecine6.central.gateway.WebServerGateway;
 import es.uniovi.asw.entrecine6.central.infrastructure.ServicesFactory;
 import es.uniovi.asw.entrecine6.central.model.Billboard;
-import es.uniovi.asw.entrecine6.central.model.CreditCardSale;
 import es.uniovi.asw.entrecine6.central.model.PaymentResult;
+import es.uniovi.asw.entrecine6.central.model.Sale;
 import es.uniovi.asw.entrecine6.central.model.Ticket;
 import es.uniovi.asw.entrecine6.central.model.User;
 
@@ -36,13 +36,13 @@ public class WebServerGatewayImpl implements WebServerGateway {
 	}
 
 	@Override
-	public PaymentResult payment(CreditCardSale sale) {
+	public PaymentResult payment(Sale sale) {
 		PaymentService service = ServicesFactory.getPaymentService();
 		return service.serverPayment(sale);
 	}
 
 	@Override
-	public Ticket receiveTicket(CreditCardSale sale) {
+	public Ticket receiveTicket(Sale sale) {
 		PaymentService service = ServicesFactory.getPaymentService();
 		return service.obtainTicket(sale);
 	}

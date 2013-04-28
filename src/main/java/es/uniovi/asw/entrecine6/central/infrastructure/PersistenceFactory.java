@@ -1,11 +1,11 @@
 package es.uniovi.asw.entrecine6.central.infrastructure;
 
-import impl.uniovi.asw.entrecine6.central.business.PaymentServiceImpl;
-import impl.uniovi.asw.entrecine6.central.business.UsersServiceImpl;
 import impl.uniovi.asw.entrecine6.central.persistence.dao.MovieJdbcDao;
-import es.uniovi.asw.entrecine6.central.business.PaymentService;
-import es.uniovi.asw.entrecine6.central.business.UsersService;
+import impl.uniovi.asw.entrecine6.central.persistence.dao.SaleJdbcDao;
+import impl.uniovi.asw.entrecine6.central.persistence.dao.UserJdbcDao;
 import es.uniovi.asw.entrecine6.central.persistence.dao.MovieDao;
+import es.uniovi.asw.entrecine6.central.persistence.dao.SaleDao;
+import es.uniovi.asw.entrecine6.central.persistence.dao.UserDao;
 
 public class PersistenceFactory {
 	
@@ -13,11 +13,11 @@ public class PersistenceFactory {
 		return new MovieJdbcDao();
 	}
 
-	public static PaymentService getPaymentService() {
-		return new PaymentServiceImpl();
+	public static SaleDao getSaleDao() {
+		return new SaleJdbcDao();
 	}
 
-	public static UsersService getUsersService() {
-		return new UsersServiceImpl();
+	public static UserDao getUserDao() {
+		return new UserJdbcDao();
 	}
 }

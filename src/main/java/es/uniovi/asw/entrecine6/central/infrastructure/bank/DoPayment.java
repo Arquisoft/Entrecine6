@@ -1,6 +1,6 @@
 package es.uniovi.asw.entrecine6.central.infrastructure.bank;
 
-import es.uniovi.asw.entrecine6.central.model.CreditCardSale;
+import es.uniovi.asw.entrecine6.central.model.Sale;
 
 public class DoPayment {
 	
@@ -10,7 +10,7 @@ public class DoPayment {
 		this.paymentGateway = paymentGateway;
 	}
 
-	public boolean doPayment(CreditCardSale sale){
+	public boolean doPayment(Sale sale){
 		return paymentGateway.pay(sale);
 	}
 
