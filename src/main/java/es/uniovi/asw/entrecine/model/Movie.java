@@ -13,6 +13,8 @@ public class Movie {
 	
 	private String sinopsis;
 	
+	private String genre;
+	
 	private int duration;
 	
 	private List<Session> sessions;
@@ -58,6 +60,14 @@ public class Movie {
 
 	public void setSinopsis(String sinopsis) {
 		this.sinopsis = sinopsis;
+	}
+	
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 
 	public int getDuration() {
