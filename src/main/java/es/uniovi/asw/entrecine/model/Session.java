@@ -7,6 +7,8 @@ public class Session {
 	
 	private Long id;
 	
+	private Long idMovie;
+	
 	private int theater;
 	
 	private Date date;
@@ -15,11 +17,13 @@ public class Session {
 	
 	private float prize;
 
-	public Session(Long id, int theater, Movie movie, int startTime,
-			List<Integer> ocuppedSeats) {
+	public Session(Long id, Long idMovie, int theater, Date date, float startTime, float prize) {
 		this.id = id;
+		this.idMovie = idMovie;
 		this.theater = theater;
+		this.date = date;
 		this.startTime = startTime;
+		this.prize = prize;
 	}
 
 	public Long getId() {
@@ -28,6 +32,14 @@ public class Session {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public Long getIdMovie() {
+		return idMovie;
+	}
+
+	public void setIdMovie(Long idMovie) {
+		this.idMovie = idMovie;
 	}
 
 	public int getTheater() {
@@ -50,7 +62,7 @@ public class Session {
 		return startTime;
 	}
 
-	public float setStartTime(float startTime) {
+	public void setStartTime(float startTime) {
 		this.startTime = startTime;
 	}
 
