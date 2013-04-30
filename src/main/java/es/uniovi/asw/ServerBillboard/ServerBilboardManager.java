@@ -1,7 +1,5 @@
 package main.java.es.uniovi.asw.ServerBillboard;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 
 public class ServerBilboardManager {
 
@@ -10,7 +8,7 @@ public class ServerBilboardManager {
 	 * RMI
 	 */
 	public void RequestBillboard() {
-		//
+		
 	}
 
 	/**
@@ -19,11 +17,8 @@ public class ServerBilboardManager {
 	 * @throws Exception Excepcion tratada
 	 * RMI
 	 */
-	public Connection Connect() throws Exception {
-		String SQL_DRV = "org.hsqldb.jdbcDriver";
-		String SQL_URL = "jdbc:hsqldb:hsql://localhost";
-		Class.forName(SQL_DRV);
-		return DriverManager.getConnection(SQL_URL, "sa", "");
+	public void Connect(String url){
+		
 	}
 	
 	/**
