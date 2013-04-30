@@ -10,12 +10,12 @@ import java.util.List;
 
 import es.uniovi.asw.entrecine6.central.infrastructure.jdbc.Jdbc;
 import es.uniovi.asw.entrecine6.central.infrastructure.jdbc.SQLLoader;
-import es.uniovi.asw.entrecine6.central.model.Movie;
-import es.uniovi.asw.entrecine6.central.persistence.dao.MovieDao;
+import es.uniovi.asw.entrecine6.central.model.Session;
+import es.uniovi.asw.entrecine6.central.persistence.dao.SessionDao;
 import es.uniovi.asw.entrecine6.central.persistence.exception.NotPersistedException;
 import es.uniovi.asw.entrecine6.central.persistence.exception.PersistenceException;
 
-public class MovieJdbcDao implements MovieDao {
+public class SessionJdbcDao implements SessionDao {
 
 	private Connection connection;
 
@@ -25,20 +25,22 @@ public class MovieJdbcDao implements MovieDao {
 	}
 
 	@Override
-	public List<Movie> findAll() {
+	public List<Session> findSessionsByMovie(Long idMovie) {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
-		List<Movie> movies = new ArrayList<Movie>();
+		List<Session> sessions = new ArrayList<Session>();
 		try {
 			pst = connection.prepareStatement(SQLLoader
-					.get("SQL_FIND_ALL_MOVIES"));
+					.get("SQL_FIND_SESSIONS_BY_MOVIE"));
+
+			pst.setLong(1, idMovie);
 
 			rs = pst.executeQuery();
 
-			while (rs.next()) 
-				movies.add(load(rs));
-			
-			return movies;
+			while (rs.next())
+				sessions.add(load(rs));
+
+			return sessions;
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -46,22 +48,20 @@ public class MovieJdbcDao implements MovieDao {
 		} finally {
 			Jdbc.close(pst);
 		}
-
 	}
-	
+
 	@Override
-	public void updateMovie(Movie movie) throws NotPersistedException {
+	public void updateSession(Session session) throws NotPersistedException {
 		PreparedStatement pst = null;
 		try {
 			pst = connection.prepareStatement(SQLLoader
-					.get("SQL_UPDATE_MOVIE"));
+					.get("SQL_UPDATE_SESSION"));
 
-			pst.setBytes(1, movie.getPosterBytes());
-			pst.setString(2, movie.getName());
-			pst.setString(3, movie.getSinopsis());
-			pst.setString(4, movie.getGenre());
-			pst.setInt(5, movie.getDuration());
-			pst.setLong(6, movie.getId());
+			pst.setInt(1, session.getTheater());
+			pst.setDate(2, (Date) session.getDate());
+			pst.setFloat(3, session.getStartTime());
+			pst.setFloat(4, session.getPrize());
+			pst.setLong(5, session.getIdMovie());
 
 			if (pst.executeUpdate() == 0) {
 				throw new NotPersistedException();
@@ -74,19 +74,19 @@ public class MovieJdbcDao implements MovieDao {
 			Jdbc.close(pst);
 		}
 	}
-	
+
 	@Override
-	public void saveMovie(Movie movie) {
+	public void saveSesion(Session session) {
 		PreparedStatement pst = null;
 		try {
 			pst = connection.prepareStatement(SQLLoader
-					.get("SQL_SAVE_MOVIE"));
-			
-			pst.setBytes(1, movie.getPosterBytes());
-			pst.setString(2, movie.getName());
-			pst.setString(3, movie.getSinopsis());
-			pst.setString(4, movie.getGenre());
-			pst.setInt(5, movie.getDuration());
+					.get("SQL_SAVE_SESSION"));
+
+			pst.setLong(1, session.getIdMovie());
+			pst.setInt(2, session.getTheater());
+			pst.setDate(3, (Date) session.getDate());
+			pst.setFloat(4, session.getStartTime());
+			pst.setFloat(5, session.getPrize());
 
 			pst.executeUpdate();
 
@@ -97,32 +97,10 @@ public class MovieJdbcDao implements MovieDao {
 			Jdbc.close(pst);
 		}
 	}
-	
-	@Override
-	public Long findLastMovieId() {
-		PreparedStatement pst = null;
-		ResultSet rs = null;
-		try {
-			pst = connection
-					.prepareStatement(SQLLoader.get("SQL_LAST_MOVIE_ID"));
 
-			rs = pst.executeQuery();
-
-			rs.next();
-
-			return rs.getLong(1);
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new PersistenceException("Invalid SQL or database schema", e);
-		} finally {
-			Jdbc.close(pst);
-		}
-	}	
-
-	private Movie load(ResultSet rs) throws SQLException {
-		return new Movie(rs.getLong(1), rs.getBytes(2), rs.getString(3),
-				rs.getString(4), rs.getString(5), rs.getInt(6), null);
+	private Session load(ResultSet rs) throws SQLException {
+		return new Session(rs.getLong(1), rs.getLong(2), rs.getInt(3),
+				rs.getDate(4), rs.getFloat(5), rs.getFloat(6));
 	}
 
 }

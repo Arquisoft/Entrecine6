@@ -21,7 +21,7 @@ public interface SaleDao {
 
 	List<Sale> findAll();
 
-	Long getLastSaleId();
+	Long findLastSaleId();
 
 	void saveSeats(Sale encodedSale, int numberOfSeats) throws SessionFullException;
 	

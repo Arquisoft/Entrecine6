@@ -1,31 +1,37 @@
 package es.uniovi.asw.entrecine6.central.model;
 
 import java.awt.Image;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+
 @SuppressWarnings("serial")
-public class Movie implements Serializable{
-	
+public class Movie implements Serializable {
+
 	private Long id;
-	
-	private Image poster;
-	
+
+	private byte[] poster;
+
 	private String name;
-	
+
 	private String sinopsis;
-	
+
+	private String genre;
+
 	private int duration;
-	
+
 	private List<Session> sessions;
 
-	public Movie(Long id, Image poster, String name, String sinopsis,
-			int duration, List<Session> sessions) {
-		super();
+	public Movie(Long id, byte[] poster, String name, String sinopsis,
+			String genre, int duration, List<Session> sessions) {
 		this.id = id;
 		this.poster = poster;
 		this.name = name;
 		this.sinopsis = sinopsis;
+		this.genre = genre;
 		this.duration = duration;
 		this.sessions = sessions;
 	}
@@ -39,10 +45,18 @@ public class Movie implements Serializable{
 	}
 
 	public Image getPoster() {
+		try {
+			return ImageIO.read(new ByteArrayInputStream(poster));
+		} catch (IOException e) {
+		}
+		return null;
+	}
+
+	public byte[] getPosterBytes() {
 		return poster;
 	}
 
-	public void setPoster(Image poster) {
+	public void setPoster(byte[] poster) {
 		this.poster = poster;
 	}
 
@@ -62,6 +76,14 @@ public class Movie implements Serializable{
 		this.sinopsis = sinopsis;
 	}
 
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
 	public int getDuration() {
 		return duration;
 	}
@@ -77,5 +99,4 @@ public class Movie implements Serializable{
 	public void setSessions(List<Session> sessions) {
 		this.sessions = sessions;
 	}
-
 }

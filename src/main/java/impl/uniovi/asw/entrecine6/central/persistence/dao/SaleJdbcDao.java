@@ -108,7 +108,7 @@ public class SaleJdbcDao implements SaleDao {
 	}
 
 	@Override
-	public Long getLastSaleId() {
+	public Long findLastSaleId() {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		try {

@@ -1,20 +1,20 @@
 package impl.uniovi.asw.entrecine6.central.persistence.classes.movie;
 
-import java.sql.SQLException;
+import impl.uniovi.asw.entrecine6.central.persistence.Invoke;
 
-import javax.sql.rowset.CachedRowSet;
+import java.sql.SQLException;
+import java.util.List;
 
 import es.uniovi.asw.entrecine6.central.infrastructure.PersistenceFactory;
 import es.uniovi.asw.entrecine6.central.infrastructure.jdbc.Jdbc;
+import es.uniovi.asw.entrecine6.central.model.Movie;
 import es.uniovi.asw.entrecine6.central.persistence.dao.MovieDao;
-
-import impl.uniovi.asw.entrecine6.central.persistence.Invoke;
 
 public class UpdateBillboard implements Invoke {
 	
-	private CachedRowSet billboard;
+	private List<Movie> billboard;
 
-	public UpdateBillboard(CachedRowSet billboard) {
+	public UpdateBillboard(List<Movie>  billboard) {
 		this.billboard = billboard;
 	}
 

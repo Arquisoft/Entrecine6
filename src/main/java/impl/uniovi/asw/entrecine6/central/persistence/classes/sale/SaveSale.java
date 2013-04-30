@@ -34,7 +34,7 @@ public class SaveSale implements Invoke {
 		
 		dao.saveSale(encodedSale);
 		
-		encodedSale.setId(dao.getLastSaleId()); 
+		encodedSale.setId(dao.findLastSaleId()); 
 		
 		try {
 			dao.saveSeats(encodedSale, sale.getNumberOfSeats());

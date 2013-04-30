@@ -2,11 +2,10 @@ package impl.uniovi.asw.entrecine6.central.gateway;
 
 import java.util.List;
 
-import javax.sql.rowset.CachedRowSet;
-
 import es.uniovi.asw.entrecine6.central.business.exception.BusinessException;
 import es.uniovi.asw.entrecine6.central.gateway.AdministrationGateway;
 import es.uniovi.asw.entrecine6.central.infrastructure.DBServicesFactory;
+import es.uniovi.asw.entrecine6.central.model.Movie;
 import es.uniovi.asw.entrecine6.central.model.Sale;
 import es.uniovi.asw.entrecine6.central.model.User;
 import es.uniovi.asw.entrecine6.central.persistence.BillboardDBService;
@@ -38,10 +37,10 @@ public class AdministrationGatewayImpl implements AdministrationGateway {
 	}
 
 	@Override
-	public CachedRowSet getBillboard() throws BusinessException {
+	public List<Movie> getBillboard() throws BusinessException {
 		BillboardDBService service = DBServicesFactory.getBillboardDBService();
 		try {
-			return service.getRawBillboard();
+			return service.loadMovies();
 		} catch (BusinessException e) {
 			e.printStackTrace();
 			throw e;
@@ -49,7 +48,7 @@ public class AdministrationGatewayImpl implements AdministrationGateway {
 	}
 
 	@Override
-	public void updateBillboard(CachedRowSet billboard)
+	public void updateBillboard(List<Movie> billboard)
 			throws BusinessException {
 		BillboardDBService service = DBServicesFactory.getBillboardDBService();
 		try {

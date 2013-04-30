@@ -3,19 +3,17 @@ package es.uniovi.asw.entrecine6.central.persistence.dao;
 import java.sql.Connection;
 import java.util.List;
 
-import es.uniovi.asw.entrecine6.central.model.Movie;
+import es.uniovi.asw.entrecine6.central.model.Session;
 import es.uniovi.asw.entrecine6.central.persistence.exception.NotPersistedException;
 
-public interface MovieDao {
-	
+public interface SessionDao {
+
 	void setConnection(Connection con);
 
-	List<Movie> findAll();
+	List<Session> findSessionsByMovie(Long idMovie);
 
-	void updateMovie(Movie movie) throws NotPersistedException;
+	void updateSession(Session session) throws NotPersistedException;
 	
-	void saveMovie(Movie movie);
+	void saveSesion(Session session);
 	
-	Long findLastMovieId();
-
 }

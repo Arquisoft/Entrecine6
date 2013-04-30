@@ -1,13 +1,10 @@
 package impl.uniovi.asw.entrecine6.central.persistence;
 
 import impl.uniovi.asw.entrecine6.central.persistence.classes.movie.FindAllMovies;
-import impl.uniovi.asw.entrecine6.central.persistence.classes.movie.FindRawBillboard;
 import impl.uniovi.asw.entrecine6.central.persistence.classes.movie.RegisterServerBillboard;
 import impl.uniovi.asw.entrecine6.central.persistence.classes.movie.UpdateBillboard;
 
 import java.util.List;
-
-import javax.sql.rowset.CachedRowSet;
 
 import es.uniovi.asw.entrecine6.central.business.exception.BusinessException;
 import es.uniovi.asw.entrecine6.central.business.listener.BillboardUpdateListener;
@@ -28,12 +25,7 @@ public class BillboardDBServiceImpl implements BillboardDBService {
 	}
 
 	@Override
-	public CachedRowSet getRawBillboard() throws BusinessException {
-		return (CachedRowSet) new Summoner().invoke(new FindRawBillboard());
-	}
-
-	@Override
-	public void updateBilboard(CachedRowSet billboard) throws BusinessException {
+	public void updateBilboard(List<Movie> billboard) throws BusinessException {
 		new Summoner().invoke(new UpdateBillboard(billboard));
 	}
 
