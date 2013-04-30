@@ -1,16 +1,15 @@
 package impl.uniovi.asw.entrecine6.central.persistence;
 
-import java.util.List;
-
 import impl.uniovi.asw.entrecine6.central.persistence.classes.sale.AddTicket;
 import impl.uniovi.asw.entrecine6.central.persistence.classes.sale.FindAllSales;
 import impl.uniovi.asw.entrecine6.central.persistence.classes.sale.FindTicketByCode;
 import impl.uniovi.asw.entrecine6.central.persistence.classes.sale.SaveSale;
-import impl.uniovi.asw.entrecine6.central.persistence.classes.user.FindAllUsers;
+
+import java.util.List;
+
 import es.uniovi.asw.entrecine6.central.business.exception.BusinessException;
 import es.uniovi.asw.entrecine6.central.model.Sale;
 import es.uniovi.asw.entrecine6.central.model.Ticket;
-import es.uniovi.asw.entrecine6.central.model.User;
 import es.uniovi.asw.entrecine6.central.persistence.SalesDBService;
 
 public class SalesDBServiceImpl implements SalesDBService{
