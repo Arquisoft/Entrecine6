@@ -1,6 +1,7 @@
 package es.uniovi.asw.entrecine.model;
 
 import java.util.List;
+import java.util.Date;
 
 public class Session {
 	
@@ -8,7 +9,9 @@ public class Session {
 	
 	private int theater;
 	
-	private int startTime;
+	private Date date;
+	
+	private float startTime;
 	
 	private float prize;
 
@@ -34,12 +37,20 @@ public class Session {
 	public void setTheater(int theater) {
 		this.theater = theater;
 	}
+	
+	public void setDate(Date date){
+		this.date = date;
+	}
+	
+	public Date getDate(){
+		return date;
+	}
 
-	public int getStartTime() {
+	public float getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(int startTime) {
+	public float setStartTime(float startTime) {
 		this.startTime = startTime;
 	}
 
