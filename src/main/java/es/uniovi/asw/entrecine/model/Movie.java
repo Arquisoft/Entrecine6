@@ -5,22 +5,22 @@ import java.util.List;
 
 public class Movie {
 	
-	private Long id;
-	
-	private Image poster;
-	
+		private Long id;
+
+	private byte[] poster;
+
 	private String name;
-	
+
 	private String sinopsis;
-	
+
 	private String genre;
-	
+
 	private int duration;
-	
+
 	private List<Session> sessions;
 
-	public Movie(Long id, Image poster, String name, String sinopsis, String genre,
-			int duration, List<Session> sessions) {
+	public Movie(Long id, byte[] poster, String name, String sinopsis,
+			String genre, int duration, List<Session> sessions) {
 		this.id = id;
 		this.poster = poster;
 		this.name = name;
@@ -39,10 +39,18 @@ public class Movie {
 	}
 
 	public Image getPoster() {
+		try {
+			return ImageIO.read(new ByteArrayInputStream(poster));
+		} catch (IOException e) {
+		}
+		return null;
+	}
+
+	public byte[] getPosterBytes() {
 		return poster;
 	}
 
-	public void setPoster(Image poster) {
+	public void setPoster(byte[] poster) {
 		this.poster = poster;
 	}
 
@@ -61,7 +69,7 @@ public class Movie {
 	public void setSinopsis(String sinopsis) {
 		this.sinopsis = sinopsis;
 	}
-	
+
 	public String getGenre() {
 		return genre;
 	}
