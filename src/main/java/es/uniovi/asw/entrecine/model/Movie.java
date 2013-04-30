@@ -19,13 +19,13 @@ public class Movie {
 	
 	private List<Session> sessions;
 
-	public Movie(Long id, Image poster, String name, String sinopsis,
+	public Movie(Long id, Image poster, String name, String sinopsis, String genre,
 			int duration, List<Session> sessions) {
-		super();
 		this.id = id;
 		this.poster = poster;
 		this.name = name;
 		this.sinopsis = sinopsis;
+		this.genre = genre;
 		this.duration = duration;
 		this.sessions = sessions;
 	}
