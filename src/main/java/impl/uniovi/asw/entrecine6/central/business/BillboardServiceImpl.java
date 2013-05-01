@@ -1,12 +1,11 @@
 package impl.uniovi.asw.entrecine6.central.business;
 
 import impl.uniovi.asw.entrecine6.central.business.billboard.BillboardLoader;
-import impl.uniovi.asw.entrecine6.central.business.billboard.BillboardUpdateConnecter;
+import impl.uniovi.asw.entrecine6.central.business.billboard.BillboardUpdateRegister;
 
 import java.util.List;
 
 import es.uniovi.asw.entrecine6.central.business.BillboardService;
-import es.uniovi.asw.entrecine6.central.business.listener.BillboardUpdateListener;
 import es.uniovi.asw.entrecine6.central.model.Billboard;
 import es.uniovi.asw.entrecine6.central.model.Movie;
 
@@ -25,8 +24,8 @@ public class BillboardServiceImpl implements BillboardService {
 	}
 
 	@Override
-	public void connectBillboard(BillboardUpdateListener listener) {
-		new BillboardUpdateConnecter().connect(listener);
+	public void registerServer(String url) {
+		new BillboardUpdateRegister().registerServer(url);
 		
 	}
 	

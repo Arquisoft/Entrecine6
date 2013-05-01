@@ -3,7 +3,6 @@ package es.uniovi.asw.entrecine6.central.gateway;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import es.uniovi.asw.entrecine6.central.business.listener.BillboardUpdateListener;
 import es.uniovi.asw.entrecine6.central.model.Billboard;
 import es.uniovi.asw.entrecine6.central.model.PaymentResult;
 import es.uniovi.asw.entrecine6.central.model.Sale;
@@ -22,6 +21,6 @@ public interface WebServerGateway extends Remote {
 
 	Ticket receiveTicket(Sale sale) throws RemoteException;
 
-	void connect(BillboardUpdateListener listener) throws RemoteException;
+	void connect(String url) throws RemoteException;
 
 }

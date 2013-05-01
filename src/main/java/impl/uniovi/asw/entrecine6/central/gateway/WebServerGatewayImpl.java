@@ -3,7 +3,6 @@ package impl.uniovi.asw.entrecine6.central.gateway;
 import es.uniovi.asw.entrecine6.central.business.BillboardService;
 import es.uniovi.asw.entrecine6.central.business.PaymentService;
 import es.uniovi.asw.entrecine6.central.business.UsersService;
-import es.uniovi.asw.entrecine6.central.business.listener.BillboardUpdateListener;
 import es.uniovi.asw.entrecine6.central.gateway.WebServerGateway;
 import es.uniovi.asw.entrecine6.central.infrastructure.ServicesFactory;
 import es.uniovi.asw.entrecine6.central.model.Billboard;
@@ -48,9 +47,9 @@ public class WebServerGatewayImpl implements WebServerGateway {
 	}
 
 	@Override
-	public void connect(BillboardUpdateListener listener) {
+	public void connect(String url) {
 		BillboardService service = ServicesFactory.getBillboardService();
-		service.connectBillboard(listener);
+		service.registerServer(url);
 	}
 
 }

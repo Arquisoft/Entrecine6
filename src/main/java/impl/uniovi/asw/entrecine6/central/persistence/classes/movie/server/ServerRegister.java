@@ -3,20 +3,18 @@ package impl.uniovi.asw.entrecine6.central.persistence.classes.movie.server;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.uniovi.asw.entrecine6.central.business.listener.BillboardUpdateListener;
-
 public class ServerRegister {
 
 	private static ServerRegister instance;
 
-	private List<BillboardUpdateListener> serversListeners;
+	private List<String> serverURLs;
 
 	private ServerRegister() {
-		this.serversListeners = new ArrayList<BillboardUpdateListener>();
+		this.serverURLs = new ArrayList<String>();
 	}
 
-	public static void addServer(BillboardUpdateListener listener) {
-		getInstance().serversListeners.add(listener);
+	public static void addServerURL(String url) {
+		getInstance().serverURLs.add(url);
 	}
 
 	public static void notifyServers() {
@@ -31,8 +29,9 @@ public class ServerRegister {
 	}
 
 	private void updateServers() {
-		for (BillboardUpdateListener listener : serversListeners)
-			listener.update();
+		for (String url : serverURLs){
+		}
+			
 	}
 
 }

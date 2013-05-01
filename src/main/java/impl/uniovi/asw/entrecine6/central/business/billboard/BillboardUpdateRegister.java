@@ -1,17 +1,16 @@
 package impl.uniovi.asw.entrecine6.central.business.billboard;
 
 import es.uniovi.asw.entrecine6.central.business.exception.BusinessException;
-import es.uniovi.asw.entrecine6.central.business.listener.BillboardUpdateListener;
 import es.uniovi.asw.entrecine6.central.infrastructure.DBServicesFactory;
 import es.uniovi.asw.entrecine6.central.persistence.BillboardDBService;
 
-public class BillboardUpdateConnecter {
+public class BillboardUpdateRegister {
 
-	public void connect(BillboardUpdateListener listener) {
+	public void registerServer(String url) {
 		BillboardDBService service = DBServicesFactory
 				.getBillboardDBService();
 		try {
-			service.registerServer(listener);
+			service.registerURL(url);
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}
