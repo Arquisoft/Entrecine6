@@ -6,7 +6,6 @@ import impl.uniovi.asw.entrecine6.central.business.billboard.BillboardUpdateConn
 import java.util.List;
 
 import es.uniovi.asw.entrecine6.central.business.BillboardService;
-import es.uniovi.asw.entrecine6.central.business.exception.BusinessException;
 import es.uniovi.asw.entrecine6.central.business.listener.BillboardUpdateListener;
 import es.uniovi.asw.entrecine6.central.model.Billboard;
 import es.uniovi.asw.entrecine6.central.model.Movie;

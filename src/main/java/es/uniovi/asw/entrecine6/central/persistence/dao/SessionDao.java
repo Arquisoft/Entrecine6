@@ -10,10 +10,10 @@ public interface SessionDao {
 
 	void setConnection(Connection con);
 
-	List<Session> findSessionsByMovie(Long idMovie);
+	List<Session> findByMovie(Long idMovie);
 
-	void updateSession(Session session) throws NotPersistedException;
+	void update(Session session) throws NotPersistedException;
 	
-	void saveSesion(Session session);
+	void save(Session session);
 	
 }

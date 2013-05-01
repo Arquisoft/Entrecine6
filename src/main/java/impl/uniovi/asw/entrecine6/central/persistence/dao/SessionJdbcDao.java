@@ -25,7 +25,7 @@ public class SessionJdbcDao implements SessionDao {
 	}
 
 	@Override
-	public List<Session> findSessionsByMovie(Long idMovie) {
+	public List<Session> findByMovie(Long idMovie) {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		List<Session> sessions = new ArrayList<Session>();
@@ -51,7 +51,7 @@ public class SessionJdbcDao implements SessionDao {
 	}
 
 	@Override
-	public void updateSession(Session session) throws NotPersistedException {
+	public void update(Session session) throws NotPersistedException {
 		PreparedStatement pst = null;
 		try {
 			pst = connection.prepareStatement(SQLLoader
@@ -76,7 +76,7 @@ public class SessionJdbcDao implements SessionDao {
 	}
 
 	@Override
-	public void saveSesion(Session session) {
+	public void save(Session session) {
 		PreparedStatement pst = null;
 		try {
 			pst = connection.prepareStatement(SQLLoader

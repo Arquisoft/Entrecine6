@@ -23,7 +23,7 @@ public class PersistenceFactory {
 		return new UserJdbcDao();
 	}
 	
-	public static SessionDao getSesionDao() {
+	public static SessionDao getSessionDao() {
 		return new SessionJdbcDao();
 	}
 }

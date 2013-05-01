@@ -12,10 +12,14 @@ public interface MovieDao {
 
 	List<Movie> findAll();
 
-	void updateMovie(Movie movie) throws NotPersistedException;
+	void update(Movie movie) throws NotPersistedException;
 	
-	void saveMovie(Movie movie);
+	void save(Movie movie);
 	
 	Long findLastMovieId();
+
+	String findFavouriteGenre(Long userId);
+
+	List<Movie> findRecomendations(String genre);
 
 }
