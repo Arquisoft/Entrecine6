@@ -7,7 +7,7 @@ import java.util.List;
 import es.uniovi.asw.entrecine6.central.model.Sale;
 import es.uniovi.asw.entrecine6.central.model.Ticket;
 import es.uniovi.asw.entrecine6.central.persistence.exception.DuplicatedTicketException;
-import es.uniovi.asw.entrecine6.central.persistence.exception.SessionFullException;
+import es.uniovi.asw.entrecine6.central.persistence.exception.OccupiedSeatException;
 
 public interface SaleDao {
 
@@ -23,8 +23,8 @@ public interface SaleDao {
 
 	Long findLastSaleId();
 
-	void saveSeats(Sale encodedSale, int numberOfSeats) throws SessionFullException;
-	
-	int[] getSeats(Sale sale);
+	int findLastSeat(Sale sale);
+
+	void saveSeat(Sale sale, int lastSeat) throws OccupiedSeatException;
 	
 }

@@ -45,7 +45,6 @@ public class MovieJdbcDao implements MovieDao {
 		} finally {
 			Jdbc.close(pst);
 		}
-
 	}
 
 	@Override

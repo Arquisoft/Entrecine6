@@ -10,7 +10,7 @@ import es.uniovi.asw.entrecine6.central.infrastructure.PersistenceFactory;
 import es.uniovi.asw.entrecine6.central.infrastructure.jdbc.Jdbc;
 import es.uniovi.asw.entrecine6.central.model.Sale;
 import es.uniovi.asw.entrecine6.central.persistence.dao.SaleDao;
-import es.uniovi.asw.entrecine6.central.persistence.exception.SessionFullException;
+import es.uniovi.asw.entrecine6.central.persistence.exception.OccupiedSeatException;
 
 public class SaveSale implements Invoke {
 
@@ -31,20 +31,31 @@ public class SaveSale implements Invoke {
 
 		Sale encodedSale = new Sale(sale.getId(), sale.getNumberOfSeats(),
 				sale.getSession(), encodedInfo);
-		
+
 		dao.saveSale(encodedSale);
-		
-		encodedSale.setId(dao.findLastSaleId()); 
-		
-		try {
-			dao.saveSeats(encodedSale, sale.getNumberOfSeats());
-		} catch (SessionFullException e) {
-			throw new BusinessException(e.getMessage());
+
+		encodedSale.setId(dao.findLastSaleId());
+
+		int[] seats = new int[sale.getNumberOfSeats()];
+
+		int lastSeat = dao.findLastSeat(sale);
+		if ((lastSeat + sale.getNumberOfSeats()) > 50) {
+			throw new BusinessException("Session full");
+		} else {
+			for (int i = 0; i <= sale.getNumberOfSeats(); i++) {
+				lastSeat++;
+				try {
+					dao.saveSeat(encodedSale, lastSeat);
+					seats[i] = lastSeat;
+				} catch (OccupiedSeatException e) {
+					e.printStackTrace();
+					if ((lastSeat + (sale.getNumberOfSeats() - i)) > 50)
+						throw new BusinessException("Session full");
+					i--;
+				}
+			}
 		}
-		
-		int[] seats = dao.getSeats(encodedSale);
 
 		return seats;
 	}
-
 }

@@ -4,20 +4,20 @@ package es.uniovi.asw.entrecine6.central.persistence.exception;
  * Thrown if an operation needs to save an entity and it already exists 
  * in the persistence system 
  */
-public class SessionFullException extends Exception {
+public class OccupiedSeatException extends Exception {
 
-	public SessionFullException() {
+	public OccupiedSeatException() {
 	}
 
-	public SessionFullException(String message) {
+	public OccupiedSeatException(String message) {
 		super(message);
 	}
 
-	public SessionFullException(Throwable cause) {
+	public OccupiedSeatException(Throwable cause) {
 		super(cause);
 	}
 
-	public SessionFullException(String message, Throwable cause) {
+	public OccupiedSeatException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
