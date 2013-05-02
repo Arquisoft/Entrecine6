@@ -15,7 +15,6 @@ public class ServerBilboardManagerImpl implements ServerBillboardManager{
 	}
 
 	public String Connect() {
-		//Queda por poner correctamente esta direccion
 		return "localhost:9000/index";
 	}
 
