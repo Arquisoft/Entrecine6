@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Session {
 	
-	private Long id;
+	private int id;
 	
 	private int theater;
 	
@@ -12,18 +12,21 @@ public class Session {
 	
 	private float prize;
 
-	public Session(Long id, int theater, Movie movie, int startTime,
+	public Session(int id, int theater, Movie movie, int startTime,
 			List<Integer> ocuppedSeats) {
 		this.id = id;
 		this.theater = theater;
 		this.startTime = startTime;
 	}
 
-	public Long getId() {
+	public Session() {
+	}
+
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

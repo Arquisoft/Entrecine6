@@ -1,9 +1,14 @@
 package main.java.es.uniovi.asw.ServerBillboard.com.persistence;
 
-import main.java.es.uniovi.asw.ServerBillboard.impl.persistence.BillboardDAO;
+import main.java.es.uniovi.asw.ServerBillboard.impl.persistence.MovieDAO;
+import main.java.es.uniovi.asw.ServerBillboard.impl.persistence.SessionDAO;
+
+
 
 public interface PersistenceFactory {
 	
-	public BillboardDAO createBillboardDAO();
+	public MovieDAO createMovieDAO();
+	
+	public SessionDAO createSessionDAO();
 
 }

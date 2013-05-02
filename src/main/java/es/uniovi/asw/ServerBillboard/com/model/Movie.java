@@ -4,20 +4,22 @@ import java.awt.Image;
 import java.util.List;
 
 public class Movie {
-	
-	private Long id;
-	
+
+	private int id;
+
 	private Image poster;
-	
+
 	private String name;
-	
+
 	private String sinopsis;
-	
+
 	private int duration;
-	
+
 	private List<Session> sessions;
 
-	public Movie(Long id, Image poster, String name, String sinopsis,
+	private String genero;
+
+	public Movie(int id, Image poster, String name, String sinopsis,
 			int duration, List<Session> sessions) {
 		super();
 		this.id = id;
@@ -28,11 +30,15 @@ public class Movie {
 		this.sessions = sessions;
 	}
 
-	public Long getId() {
+	public Movie() {
+
+	}
+
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -74,6 +80,14 @@ public class Movie {
 
 	public void setSessions(List<Session> sessions) {
 		this.sessions = sessions;
+	}
+
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
 	}
 
 }

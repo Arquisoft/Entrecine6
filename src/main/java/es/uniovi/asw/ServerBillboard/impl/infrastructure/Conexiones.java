@@ -10,7 +10,6 @@ public class Conexiones {
 			ClassNotFoundException {
 		String SQL_DRV = "org.hsqldb.jdbcDriver";
 		String SQL_URL = "jdbc:hsqldb:hsql://localhost";
-		// Obtenemos la conexión a la base de datos.
 		Class.forName(SQL_DRV);
 		return DriverManager.getConnection(SQL_URL, "sa", "");
 	}

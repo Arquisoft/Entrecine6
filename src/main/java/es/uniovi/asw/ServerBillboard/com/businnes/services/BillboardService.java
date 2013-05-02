@@ -9,5 +9,6 @@ public interface BillboardService {
 	public Billboard getBillboard() throws ClassNotFoundException, SQLException;
 	
 	public void setBillboard(Billboard billboard) throws ClassNotFoundException, SQLException;
+	
 
 }
