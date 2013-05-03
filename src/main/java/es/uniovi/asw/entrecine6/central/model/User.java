@@ -3,9 +3,10 @@ package es.uniovi.asw.entrecine6.central.model;
 import java.io.Serializable;
 import java.util.List;
 
-@SuppressWarnings("serial")
 public class User implements Serializable{
 	
+	private static final long serialVersionUID = 3428089552191047721L;
+
 	private Long id;
 	
 	private String name;

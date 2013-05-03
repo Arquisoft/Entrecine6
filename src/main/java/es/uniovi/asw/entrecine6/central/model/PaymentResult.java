@@ -2,9 +2,10 @@ package es.uniovi.asw.entrecine6.central.model;
 
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
 public class PaymentResult implements Serializable{
 	
+	private static final long serialVersionUID = -8926124260576051117L;
+
 	public static enum ErrorCode{ OKEY, INVALIDPAYMENT, SESSIONFULL, INTERNALERROR}
 
 	// Codigo de error

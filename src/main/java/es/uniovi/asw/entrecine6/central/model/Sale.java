@@ -2,9 +2,10 @@ package es.uniovi.asw.entrecine6.central.model;
 
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
 public class Sale implements Serializable{
 	
+	private static final long serialVersionUID = -7834724610259277693L;
+
 	private Long id;
 	
 	private int numberOfSeats;

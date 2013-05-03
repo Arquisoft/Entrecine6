@@ -2,9 +2,10 @@ package es.uniovi.asw.entrecine6.central.model;
 
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
 public class Ticket implements Serializable{
 	
+	private static final long serialVersionUID = 4622256157823092391L;
+
 	private Long id;
 	
 	private String code;

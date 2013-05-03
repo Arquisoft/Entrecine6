@@ -3,9 +3,10 @@ package es.uniovi.asw.entrecine6.central.model;
 import java.io.Serializable;
 import java.util.Date;
 
-@SuppressWarnings("serial")
 public class Session implements Serializable{
-	
+
+	private static final long serialVersionUID = 4425980278488462359L;
+
 	private Long id;
 	
 	private Long idMovie;

@@ -3,9 +3,10 @@ package es.uniovi.asw.entrecine6.central.model;
 import java.io.Serializable;
 import java.util.List;
 
-@SuppressWarnings("serial")
 public class Billboard implements Serializable{
 
+	private static final long serialVersionUID = 6813750168951988677L;
+	
 	private List<Movie> movies;
 
 	public Billboard(List<Movie> movies) {

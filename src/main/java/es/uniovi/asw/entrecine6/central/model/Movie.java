@@ -8,8 +8,9 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
-@SuppressWarnings("serial")
 public class Movie implements Serializable {
+
+	private static final long serialVersionUID = 1456431466098537183L;
 
 	private Long id;
 
