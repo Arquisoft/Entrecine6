@@ -54,12 +54,12 @@ public class SaleJdbcDao implements SaleDao {
 	}
 
 	@Override
-	public Ticket findTicketByCode(String ticketCode) {
+	public Sale findSaleByTicket(String ticketCode) {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		try {
 			pst = connection.prepareStatement(SQLLoader
-					.get("SQL_FIND_TICKET_BY_CODE"));
+					.get("SQL_FIND_SALE_BY_TICKET"));
 
 			pst.setString(1, ticketCode);
 
@@ -67,7 +67,7 @@ public class SaleJdbcDao implements SaleDao {
 
 			rs.next();
 
-			return loadTicket(rs);
+			return load(rs);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -112,7 +112,7 @@ public class SaleJdbcDao implements SaleDao {
 			rs = pst.executeQuery();
 
 			while (rs.next())
-				sales.add(loadSale(rs));
+				sales.add(load(rs));
 
 			return sales;
 
@@ -151,9 +151,8 @@ public class SaleJdbcDao implements SaleDao {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		try {
-			pst = connection
-					.prepareStatement(SQLLoader.get("SQL_LAST_SEAT"));
-			
+			pst = connection.prepareStatement(SQLLoader.get("SQL_LAST_SEAT"));
+
 			pst.setLong(1, sale.getId());
 			pst.setLong(2, sale.getSession().getId());
 
@@ -185,7 +184,7 @@ public class SaleJdbcDao implements SaleDao {
 
 		} catch (SQLIntegrityConstraintViolationException e) {
 			e.printStackTrace();
-			throw new OccupiedSeatException("Seat nº "+seat + " is ocuped");
+			throw new OccupiedSeatException("Seat nº " + seat + " is ocuped");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new PersistenceException("Invalid SQL or database schema", e);
@@ -193,13 +192,12 @@ public class SaleJdbcDao implements SaleDao {
 			Jdbc.close(pst);
 		}
 	}
-	
-	private Ticket loadTicket(ResultSet rs) throws SQLException {
-		return new Ticket(rs.getString(1), null);
-	}
-	
-	private Sale loadSale(ResultSet rs) throws SQLException {
-		return new Sale(rs.getLong(1), rs.getInt(2), new Session(rs.getLong(3), rs.getLong(4), rs.getInt(5), rs.getDate(6), rs.getFloat(7), rs.getFloat(8)), rs.getString(9));
-	}
 
+	private Sale load(ResultSet rs) throws SQLException {
+		Session session = new Session(rs.getLong(2), rs.getLong(3),
+				rs.getInt(4), rs.getDate(5), rs.getFloat(6), rs.getFloat(7));
+		float totalPrize = rs.getFloat(9);
+		return new Sale(rs.getLong(1), (int) (totalPrize / session.getPrize()),
+				session, rs.getString(8));
+	}
 }

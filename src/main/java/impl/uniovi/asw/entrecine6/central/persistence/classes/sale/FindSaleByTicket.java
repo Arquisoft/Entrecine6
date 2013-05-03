@@ -8,11 +8,11 @@ import es.uniovi.asw.entrecine6.central.infrastructure.PersistenceFactory;
 import es.uniovi.asw.entrecine6.central.infrastructure.jdbc.Jdbc;
 import es.uniovi.asw.entrecine6.central.persistence.dao.SaleDao;
 
-public class FindTicketByCode implements Invoke {
+public class FindSaleByTicket implements Invoke {
 	
 	private String ticketCode;
 
-	public FindTicketByCode(String ticketCode) {
+	public FindSaleByTicket(String ticketCode) {
 		this.ticketCode = ticketCode;
 	}
 
@@ -22,7 +22,7 @@ public class FindTicketByCode implements Invoke {
 		
 		dao.setConnection(Jdbc.getCurrentConnection());
 		
-		return dao.findTicketByCode(ticketCode);
+		return dao.findSaleByTicket(ticketCode);
 	}
 
 }

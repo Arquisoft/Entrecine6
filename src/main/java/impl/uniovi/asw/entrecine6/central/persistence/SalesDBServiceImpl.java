@@ -2,7 +2,7 @@ package impl.uniovi.asw.entrecine6.central.persistence;
 
 import impl.uniovi.asw.entrecine6.central.persistence.classes.sale.AddTicket;
 import impl.uniovi.asw.entrecine6.central.persistence.classes.sale.FindAllSales;
-import impl.uniovi.asw.entrecine6.central.persistence.classes.sale.FindTicketByCode;
+import impl.uniovi.asw.entrecine6.central.persistence.classes.sale.FindSaleByTicket;
 import impl.uniovi.asw.entrecine6.central.persistence.classes.sale.SaveSale;
 
 import java.util.List;
@@ -20,8 +20,8 @@ public class SalesDBServiceImpl implements SalesDBService{
 	}
 
 	@Override
-	public Ticket getTicket(String ticketCode) throws BusinessException {
-		return (Ticket) new Summoner().invoke(new FindTicketByCode(ticketCode));
+	public Sale findByTicket(String ticketCode) throws BusinessException {
+		return (Sale) new Summoner().invoke(new FindSaleByTicket(ticketCode));
 	}
 
 	@Override

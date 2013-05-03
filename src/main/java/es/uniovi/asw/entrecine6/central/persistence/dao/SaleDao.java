@@ -15,7 +15,7 @@ public interface SaleDao {
 
 	void saveTicket(Ticket ticket) throws SQLException, DuplicatedTicketException;
 
-	Ticket findTicketByCode(String ticketCode);
+	Sale findSaleByTicket(String ticketCode);
 
 	void saveSale(Sale sale);
 

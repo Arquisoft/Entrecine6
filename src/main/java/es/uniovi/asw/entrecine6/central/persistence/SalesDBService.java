@@ -10,7 +10,7 @@ public interface SalesDBService {
 
 	void saveTicket(Ticket ticket) throws BusinessException;
 
-	Ticket getTicket(String ticketCode) throws BusinessException;
+	Sale findByTicket(String ticketCode) throws BusinessException;
 
 	int[] saveSale(Sale sale) throws BusinessException;
 
